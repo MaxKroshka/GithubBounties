@@ -1,5 +1,4 @@
-import React from 'react';
-
+const React = require('react');
 const ResourceList = (props) => (
     <div className="row"> 
       <div className="col s12 m10">
@@ -18,7 +17,7 @@ const ResourceList = (props) => (
               </p> 
             </div>
             <div className="row">
-              <a  className="left-align col s12 cyan-text lighten-2" href={'https://guides.github.com/activities/contributing-to-open-source/'}>The guide on Open Source contribution</a>
+              <a className="left-align col s12 cyan-text lighten-2" href={'https://guides.github.com/activities/contributing-to-open-source/'}>The guide on Open Source contribution</a>
               <p className="left-align col s12">
                 A great way to get involved in the open source community. This guide will cover the basics on the overall process and how to contribute on existing projects.
               </p>

@@ -2,15 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var db = require('./db/database');
 var app = express();
-var config = require('./config')
+var config = require('./config');
 var githubOAuth = require('github-oauth')({
   githubClient: config.GITHUB_CLIENT,
   githubSecret: config.GITHUB_SECRET,
   baseURL: 'http://127.0.0.1:8080',
-})
+});
 var github = require('octonode');
 
-console.log('starting server ')
 var Issues = require('./models/issues');
 Issues = new Issues();
 
@@ -29,7 +28,7 @@ app.use(function(req, res, next) {
 var port = process.env.PORT || 3000;
 
 app.route('/api')
-  .get(function(req, res){
+  .get(function(req, res) {
     res.send('Hello World');
   });
 
@@ -45,7 +44,7 @@ app.route('/api/issues')
   });
 
 app.route('/api/repos')
-  .get(function(req, res){
+  .get(function(req, res) {
     Repos.getRepos()
     .then((results) => res.send(results))
     .catch(() => {
@@ -55,25 +54,24 @@ app.route('/api/repos')
   });
 
 app.get('/gitHubRedirect', function(req, res) {
-  res.redirect("https://github.com/login/oauth/authorize?scope=user:email&client_id=" + config.GITHUB_CLIENT);
-})
+  res.redirect('https://github.com/login/oauth/authorize?scope=user:email&client_id=' + config.GITHUB_CLIENT);
+});
 // for github oauth get token
 app.get(/callback/, function(req, res) {
   githubOAuth.callback(req, res);
 });
 
 githubOAuth.on('error', function(err) {
-  console.error('there was a login error', err)
-})
+  console.error('there was a login error', err);
+});
 
 // use token to get the user id
 githubOAuth.on('token', function(token, serverResponse) {
   github.client(token.access_token).get('/user', {}, function (err, status, body, headers) {
-  console.log(body);
-
+    console.log(body);
+  });
+  serverResponse.end(JSON.stringify(token));
 });
-  serverResponse.end(JSON.stringify(token))
-})
 
 console.log(`server running on port ${port} in ${process.env.NODE_ENV} mode`);
 // start listening to requests on port 3000

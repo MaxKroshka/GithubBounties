@@ -33,7 +33,7 @@ class RepoSearch extends React.Component {
     Repos.getLanguages((languages) => {
       this.setState({
         languages: languages
-      }, () =>  $(`.${this.languageDropDownClass}`).material_select(this.languageHandler));
+      }, () => $(`.${this.languageDropDownClass}`).material_select(this.languageHandler));
     });
   }
 
@@ -58,7 +58,7 @@ class RepoSearch extends React.Component {
     return $selected[0].innerText.trim();
   }
 
-  dummy (){
+  dummy () {
     //this doesn't actually get called because onChange doesn't work w/ the materialize select.
     //we just feed it in so React doesn't throw any errors
   }
