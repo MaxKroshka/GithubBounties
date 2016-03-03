@@ -50,6 +50,7 @@ class TicketList extends React.Component {
   }
   render () {
     if (this.state.bounties) {
+      console.log('rendering this');
       return (
       <div>
         <TicketSearch searchHandler={this.getBounties} />

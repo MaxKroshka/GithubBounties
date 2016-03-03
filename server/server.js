@@ -43,6 +43,17 @@ app.route('/api/issues')
     });
   });
 
+app.route('/api/bounties')
+  .get(function(req, res) {
+    Issues.getBounties()
+    .then((results) => res.send(results))
+    .catch((err) => {
+      console.log(err);
+      res.statusCode = 501;
+      res.send('Unknown Server Error');
+    });
+  });  
+
 app.route('/api/repos')
   .get(function(req, res) {
     Repos.getRepos()

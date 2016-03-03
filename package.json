@@ -34,7 +34,6 @@
     "babel-preset-react": "^6.5.0",
     "bluebird": "^3.3.1",
     "body-parser": "^1.15.0",
-    "bootstrap": "^3.3.6",
     "chai": "^3.5.0",
     "chai-things": "^0.2.0",
     "date-diff": "^0.1.3",

@@ -17,9 +17,37 @@ var getIssuesFromApi = function (successCallback, errCallback) {
   $.ajax(options);  
 };
 
+var getBountiesFromApi = function (successCallback, errCallback) {
+  var options = {
+    url: 'http://107.170.222.135:3000/api/bounties',
+    type: 'GET',
+    success: successCallback,
+    error: errCallback
+  };
+
+  $.ajax(options);  
+};
+
 module.exports.getIssues = function(successCallback, errCallback, searchTerm, language) {
   if (issues.length === 0) {
     getIssuesFromApi((data) => {
+      issues = data;
+      if (searchTerm || language) {
+        return successCallback(returnFilteredIssues(searchTerm, language));
+      }
+      return successCallback(issues);
+    }, errCallback);
+  } else {
+    if (searchTerm || language) {
+      return successCallback(returnFilteredIssues(searchTerm, language));
+    }
+    return successCallback(issues);
+  }
+};
+
+module.exports.getBounties = function(successCallback, errCallback, searchTerm, language) {
+  if (issues.length === 0) {
+    getBountiesFromApi((data) => {
       issues = data;
       if (searchTerm || language) {
         return successCallback(returnFilteredIssues(searchTerm, language));
