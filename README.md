@@ -1,15 +1,12 @@
-[![Stories in Backlog](https://badge.waffle.io/DapperArgentina/DapperArgentina.png?label=backlog&title=Backlog)](https://waffle.io/DapperArgentina/DapperArgentina)
-[![Stories in Ready](https://badge.waffle.io/DapperArgentina/DapperArgentina.png?label=ready&title=Ready)](https://waffle.io/DapperArgentina/DapperArgentina)
-# DapperArgentina  
 
-> An app that guides software engineers on how to start contributing to the open source community on Github.  
+> An app that guides software engineers on how to earn money by resolving issues on GitHub.  
 
 ## Team Members  
 
-- Megan Ring  
-- Vince Cipriani  
-- Daniel Kim  
-- Colin Whitmarsh  
+- Max Kroshka  
+- Joe Miller  
+- Evan Chen  
+- Frank Shieh  
 
 ## Requirements  
 
